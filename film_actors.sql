@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Feb 03, 2020 at 03:44 PM
+-- Generation Time: Feb 04, 2020 at 06:58 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -18,8 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+DROP DATABASE IF EXISTS `films_actors`;
+CREATE DATABASE `films_actors`;
+USE `films_actors`;
 --
--- Database: `film_actors`
+-- Database: `films_actors`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +61,7 @@ INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`) VALUES
 (13, 'UMA', 'WOOD'),
 (14, 'VIVIEN', 'BERGEN'),
 (15, 'CUBA', 'OLIVIER'),
-(16, 'FRED', 'COSTNER'),
+(16, 'Daniil', 'Kozlovskiy'),
 (17, 'HELEN', 'VOIGHT'),
 (18, 'DAN', 'TORN'),
 (19, 'BOB', 'FAWCETT'),
@@ -1695,17 +1698,17 @@ CREATE TABLE IF NOT EXISTS `film` (
 --
 
 INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language_id`, `original_language_id`, `rental_duration`, `rental_rate`, `length`, `replacement_cost`, `rating`, `special_features`) VALUES
-(1, 'ACADEMY DINOSAUR', 'A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies', 2006, 1, NULL, 6, '0.99', 86, '20.99', 'PG', 'Deleted Scenes,Behind the Scenes'),
-(2, 'ACE GOLDFINGER', 'A Astounding Epistle of a Database Administrator And a Explorer who must Find a Car in Ancient China', 2006, 1, NULL, 3, '4.99', 48, '12.99', 'G', 'Trailers,Deleted Scenes'),
+(1, 'ACADEMY DINOSAUR', 'A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies', NULL, 1, NULL, 6, '1.00', 86, '20.99', 'PG', 'Deleted Scenes,Behind the Scenes'),
+(2, 'ACE GOLDFINGER', NULL, 2006, 1, NULL, 3, '10.00', 48, '12.99', 'G', 'Trailers,Deleted Scenes'),
 (3, 'ADAPTATION HOLES', 'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory', 2006, 1, NULL, 7, '2.99', 50, '18.99', 'NC-17', 'Trailers,Deleted Scenes'),
 (4, 'AFFAIR PREJUDICE', 'A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank', 2006, 1, NULL, 5, '2.99', 117, '26.99', 'G', 'Commentaries,Behind the Scenes'),
-(5, 'AFRICAN EGG', 'A Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico', 2006, 1, NULL, 6, '2.99', 130, '22.99', 'G', 'Deleted Scenes'),
+(5, 'AFRICAN EGG', 'A Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico', 2006, 1, NULL, 6, '2.99', NULL, '22.99', 'G', 'Deleted Scenes'),
 (6, 'AGENT TRUMAN', 'A Intrepid Panorama of a Robot And a Boy who must Escape a Sumo Wrestler in Ancient China', 2006, 1, NULL, 3, '2.99', 169, '17.99', 'PG', 'Deleted Scenes'),
 (7, 'AIRPLANE SIERRA', 'A Touching Saga of a Hunter And a Butler who must Discover a Butler in A Jet Boat', 2006, 1, NULL, 6, '4.99', 62, '28.99', 'PG-13', 'Trailers,Deleted Scenes'),
 (8, 'AIRPORT POLLOCK', 'A Epic Tale of a Moose And a Girl who must Confront a Monkey in Ancient India', 2006, 1, NULL, 6, '4.99', 54, '15.99', 'R', 'Trailers'),
 (9, 'ALABAMA DEVIL', 'A Thoughtful Panorama of a Database Administrator And a Mad Scientist who must Outgun a Mad Scientist in A Jet Boat', 2006, 1, NULL, 3, '2.99', 114, '21.99', 'PG-13', 'Trailers,Deleted Scenes'),
 (10, 'ALADDIN CALENDAR', 'A Action-Packed Tale of a Man And a Lumberjack who must Reach a Feminist in Ancient China', 2006, 1, NULL, 6, '4.99', 63, '24.99', 'NC-17', 'Trailers,Deleted Scenes'),
-(11, 'ALAMO VIDEOTAPE', 'A Boring Epistle of a Butler And a Cat who must Fight a Pastry Chef in A MySQL Convention', 2006, 1, NULL, 6, '0.99', 126, '16.99', 'G', 'Commentaries,Behind the Scenes'),
+(11, 'ALAMO VIDEOTAPE NEXT MONTH', 'A Boring Epistle of a Butler And a Cat who must Fight a Pastry Chef in A MySQL Convention', 2006, 1, NULL, 6, '0.99', 126, '16.99', 'G', 'Commentaries,Behind the Scenes'),
 (12, 'ALASKA PHANTOM', 'A Fanciful Saga of a Hunter And a Pastry Chef who must Vanquish a Boy in Australia', 2006, 1, NULL, 6, '0.99', 136, '22.99', 'PG', 'Commentaries,Deleted Scenes'),
 (13, 'ALI FOREVER', 'A Action-Packed Drama of a Dentist And a Crocodile who must Battle a Feminist in The Canadian Rockies', 2006, 1, NULL, 4, '4.99', 150, '21.99', 'PG', 'Deleted Scenes,Behind the Scenes'),
 (14, 'ALICE FANTASIA', 'A Emotional Drama of a A Shark And a Database Administrator who must Vanquish a Pioneer in Soviet Georgia', 2006, 1, NULL, 6, '0.99', 94, '23.99', 'NC-17', 'Trailers,Deleted Scenes,Behind the Scenes'),
@@ -1952,11 +1955,11 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (254, 'DRIVER ANNIE', 'A Lacklusture Character Study of a Butler And a Car who must Redeem a Boat in An Abandoned Fun House', 2006, 1, NULL, 4, '2.99', 159, '11.99', 'PG-13', 'Trailers,Deleted Scenes,Behind the Scenes'),
 (255, 'DRIVING POLISH', 'A Action-Packed Yarn of a Feminist And a Technical Writer who must Sink a Boat in An Abandoned Mine Shaft', 2006, 1, NULL, 6, '4.99', 175, '21.99', 'NC-17', 'Trailers,Deleted Scenes'),
 (256, 'DROP WATERFRONT', 'A Fanciful Documentary of a Husband And a Explorer who must Reach a Madman in Ancient China', 2006, 1, NULL, 6, '4.99', 178, '20.99', 'R', 'Trailers,Commentaries'),
-(257, 'DRUMLINE CYCLONE', 'A Insightful Panorama of a Monkey And a Sumo Wrestler who must Outrace a Mad Scientist in The Canadian Rockies', 2006, 1, NULL, 3, '0.99', 110, '14.99', 'G', 'Commentaries,Deleted Scenes,Behind the Scenes'),
+(257, 'DRUMLINE CYCLONE DAY', 'A Insightful Panorama of a Monkey And a Sumo Wrestler who must Outrace a Mad Scientist in The Canadian Rockies', 2006, 1, NULL, 3, '0.99', 110, '14.99', 'G', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (258, 'DRUMS DYNAMITE', 'A Epic Display of a Crocodile And a Crocodile who must Confront a Dog in An Abandoned Amusement Park', 2006, 1, NULL, 6, '0.99', 96, '11.99', 'PG', 'Trailers'),
-(259, 'DUCK RACER', 'A Lacklusture Yarn of a Teacher And a Squirrel who must Overcome a Dog in A Shark Tank', 2006, 1, NULL, 4, '2.99', 116, '15.99', 'NC-17', 'Behind the Scenes'),
-(260, 'DUDE BLINDNESS', 'A Stunning Reflection of a Husband And a Lumberjack who must Face a Frisbee in An Abandoned Fun House', 2006, 1, NULL, 3, '4.99', 132, '9.99', 'G', 'Trailers,Deleted Scenes'),
-(261, 'DUFFEL APOCALYPSE', 'A Emotional Display of a Boat And a Explorer who must Challenge a Madman in A MySQL Convention', 2006, 1, NULL, 5, '0.99', 171, '13.99', 'G', 'Commentaries'),
+(259, 'DUCK RACER', 'A Lacklusture Yarn of a Teacher And a Squirrel who must Overcome a Dog in A Shark Tank', 2006, 1, NULL, 4, '2.99', 180, '15.99', 'NC-17', 'Behind the Scenes'),
+(260, 'DUDE BLINDNESS', 'A Stunning Reflection of a Husband And a Lumberjack who must Face a Frisbee in An Abandoned Fun House', 2006, 1, NULL, 3, '4.99', 90, '9.99', 'G', 'Trailers,Deleted Scenes'),
+(261, 'DUFFEL APOCALYPSE', 'A Emotional Display of a Boat And a Explorer who must Challenge a Madman in A MySQL Convention', 2006, 1, NULL, 5, '6.00', 171, '13.99', 'G', 'Commentaries'),
 (262, 'DUMBO LUST', 'A Touching Display of a Feminist And a Dentist who must Conquer a Husband in The Gulf of Mexico', 2006, 1, NULL, 5, '0.99', 119, '17.99', 'NC-17', 'Behind the Scenes'),
 (263, 'DURHAM PANKY', 'A Brilliant Panorama of a Girl And a Boy who must Face a Mad Scientist in An Abandoned Mine Shaft', 2006, 1, NULL, 6, '4.99', 154, '14.99', 'R', 'Trailers,Commentaries'),
 (264, 'DWARFS ALTER', 'A Emotional Yarn of a Girl And a Dog who must Challenge a Composer in Ancient Japan', 2006, 1, NULL, 6, '2.99', 101, '13.99', 'G', 'Commentaries,Deleted Scenes'),
@@ -1965,7 +1968,7 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (267, 'EAGLES PANKY', 'A Thoughtful Story of a Car And a Boy who must Find a A Shark in The Sahara Desert', 2006, 1, NULL, 4, '4.99', 140, '14.99', 'NC-17', 'Trailers,Commentaries,Behind the Scenes'),
 (268, 'EARLY HOME', 'A Amazing Panorama of a Mad Scientist And a Husband who must Meet a Woman in The Outback', 2006, 1, NULL, 6, '4.99', 96, '27.99', 'NC-17', 'Trailers,Commentaries,Behind the Scenes'),
 (269, 'EARRING INSTINCT', 'A Stunning Character Study of a Dentist And a Mad Cow who must Find a Teacher in Nigeria', 2006, 1, NULL, 3, '0.99', 98, '22.99', 'R', 'Behind the Scenes'),
-(270, 'EARTH VISION', 'A Stunning Drama of a Butler And a Madman who must Outrace a Womanizer in Ancient India', 2006, 1, NULL, 7, '0.99', 85, '29.99', 'NC-17', 'Trailers,Commentaries,Deleted Scenes'),
+(270, 'EARTH VISION YEAR', 'A Stunning Drama of a Butler And a Madman who must Outrace a Womanizer in Ancient India', 2006, 1, NULL, 7, '0.99', 85, '29.99', 'NC-17', 'Trailers,Commentaries,Deleted Scenes'),
 (271, 'EASY GLADIATOR', 'A Fateful Story of a Monkey And a Girl who must Overcome a Pastry Chef in Ancient India', 2006, 1, NULL, 5, '4.99', 148, '12.99', 'G', 'Trailers,Commentaries,Behind the Scenes'),
 (272, 'EDGE KISSING', 'A Beautiful Yarn of a Composer And a Mad Cow who must Redeem a Mad Scientist in A Jet Boat', 2006, 1, NULL, 5, '4.99', 153, '9.99', 'NC-17', 'Deleted Scenes'),
 (273, 'EFFECT GLADIATOR', 'A Beautiful Display of a Pastry Chef And a Pastry Chef who must Outgun a Forensic Psychologist in A Manhattan Penthouse', 2006, 1, NULL, 6, '0.99', 107, '14.99', 'PG', 'Commentaries'),
@@ -2213,21 +2216,21 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (514, 'LEBOWSKI SOLDIERS', 'A Beautiful Epistle of a Secret Agent And a Pioneer who must Chase a Astronaut in Ancient China', 2006, 1, NULL, 6, '2.99', 69, '17.99', 'PG-13', 'Commentaries,Deleted Scenes'),
 (515, 'LEGALLY SECRETARY', 'A Astounding Tale of a A Shark And a Moose who must Meet a Womanizer in The Sahara Desert', 2006, 1, NULL, 7, '4.99', 113, '14.99', 'PG', 'Trailers,Commentaries,Behind the Scenes'),
 (516, 'LEGEND JEDI', 'A Awe-Inspiring Epistle of a Pioneer And a Student who must Outgun a Crocodile in The Outback', 2006, 1, NULL, 7, '0.99', 59, '18.99', 'PG', 'Commentaries,Deleted Scenes'),
-(517, 'LESSON CLEOPATRA', 'A Emotional Display of a Man And a Explorer who must Build a Boy in A Manhattan Penthouse', 2006, 1, NULL, 3, '0.99', 167, '28.99', 'NC-17', 'Deleted Scenes,Behind the Scenes'),
+(517, 'LESSON CLEOPATRA', 'A Emotional Display of a Man And a Explorer who must Build a Boy in A Manhattan Penthouse', 2000, 6, NULL, 3, '0.99', 167, '28.99', 'NC-17', 'Deleted Scenes,Behind the Scenes'),
 (518, 'LIAISONS SWEET', 'A Boring Drama of a A Shark And a Explorer who must Redeem a Waitress in The Canadian Rockies', 2006, 1, NULL, 5, '4.99', 140, '15.99', 'PG', 'Commentaries,Behind the Scenes'),
 (519, 'LIBERTY MAGNIFICENT', 'A Boring Drama of a Student And a Cat who must Sink a Technical Writer in A Baloon', 2006, 1, NULL, 3, '2.99', 138, '27.99', 'G', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (520, 'LICENSE WEEKEND', 'A Insightful Story of a Man And a Husband who must Overcome a Madman in A Monastery', 2006, 1, NULL, 7, '2.99', 91, '28.99', 'NC-17', 'Deleted Scenes,Behind the Scenes'),
 (521, 'LIES TREATMENT', 'A Fast-Paced Character Study of a Dentist And a Moose who must Defeat a Composer in The First Manned Space Station', 2006, 1, NULL, 7, '4.99', 147, '28.99', 'NC-17', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (522, 'LIFE TWISTED', 'A Thrilling Reflection of a Teacher And a Composer who must Find a Man in The First Manned Space Station', 2006, 1, NULL, 4, '2.99', 137, '9.99', 'NC-17', 'Commentaries,Deleted Scenes'),
-(523, 'LIGHTS DEER', 'A Unbelieveable Epistle of a Dog And a Woman who must Confront a Moose in The Gulf of Mexico', 2006, 1, NULL, 7, '0.99', 174, '21.99', 'R', 'Commentaries'),
-(524, 'LION UNCUT', 'A Intrepid Display of a Pastry Chef And a Cat who must Kill a A Shark in Ancient China', 2006, 1, NULL, 6, '0.99', 50, '13.99', 'PG', 'Trailers,Deleted Scenes'),
+(523, 'LIGHTS DEER', 'A Unbelieveable Epistle of a Dog And a Woman who must Confront a Moose in The Gulf of Mexico', 2006, 7, NULL, 7, '0.99', 174, '21.99', 'R', 'Commentaries'),
+(524, 'LION UNCUT', 'A Intrepid Display of a Pastry Chef And a Cat who must Kill a A Shark in Ancient China', 2006, 8, NULL, 6, '0.99', 50, '13.99', 'PG', 'Trailers,Deleted Scenes'),
 (525, 'LOATHING LEGALLY', 'A Boring Epistle of a Pioneer And a Mad Scientist who must Escape a Frisbee in The Gulf of Mexico', 2006, 1, NULL, 4, '0.99', 140, '29.99', 'R', 'Deleted Scenes'),
 (526, 'LOCK REAR', 'A Thoughtful Character Study of a Squirrel And a Technical Writer who must Outrace a Student in Ancient Japan', 2006, 1, NULL, 7, '2.99', 120, '10.99', 'R', 'Trailers,Commentaries'),
 (527, 'LOLA AGENT', 'A Astounding Tale of a Mad Scientist And a Husband who must Redeem a Database Administrator in Ancient Japan', 2006, 1, NULL, 4, '4.99', 85, '24.99', 'PG', 'Trailers,Commentaries'),
 (528, 'LOLITA WORLD', 'A Thrilling Drama of a Girl And a Robot who must Redeem a Waitress in An Abandoned Mine Shaft', 2006, 1, NULL, 4, '2.99', 155, '25.99', 'NC-17', 'Trailers,Deleted Scenes'),
 (529, 'LONELY ELEPHANT', 'A Intrepid Story of a Student And a Dog who must Challenge a Explorer in Soviet Georgia', 2006, 1, NULL, 3, '2.99', 67, '12.99', 'G', 'Trailers,Commentaries,Deleted Scenes,Behind the Scenes'),
 (530, 'LORD ARIZONA', 'A Action-Packed Display of a Frisbee And a Pastry Chef who must Pursue a Crocodile in A Jet Boat', 2006, 1, NULL, 5, '2.99', 108, '27.99', 'PG-13', 'Trailers'),
-(531, 'LOSE INCH', 'A Stunning Reflection of a Student And a Technical Writer who must Battle a Butler in The First Manned Space Station', 2006, 1, NULL, 3, '0.99', 137, '18.99', 'R', 'Trailers,Commentaries'),
+(531, 'LOSE INCH', 'A Stunning Reflection of a Student And a Technical Writer who must Battle a Butler in The First Manned Space Station', 2006, 7, NULL, 3, '0.99', 137, '18.99', 'R', 'Trailers,Commentaries'),
 (532, 'LOSER HUSTLER', 'A Stunning Drama of a Robot And a Feminist who must Outgun a Butler in Nigeria', 2006, 1, NULL, 5, '4.99', 80, '28.99', 'PG', 'Deleted Scenes,Behind the Scenes'),
 (533, 'LOST BIRD', 'A Emotional Character Study of a Robot And a A Shark who must Defeat a Technical Writer in A Manhattan Penthouse', 2006, 1, NULL, 4, '2.99', 98, '21.99', 'PG-13', 'Deleted Scenes'),
 (534, 'LOUISIANA HARRY', 'A Lacklusture Drama of a Girl And a Technical Writer who must Redeem a Monkey in A Shark Tank', 2006, 1, NULL, 5, '0.99', 70, '18.99', 'PG-13', 'Trailers'),
@@ -2465,7 +2468,7 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (765, 'SATURN NAME', 'A Fateful Epistle of a Butler And a Boy who must Redeem a Teacher in Berlin', 2006, 1, NULL, 7, '4.99', 182, '18.99', 'R', 'Trailers,Commentaries,Deleted Scenes,Behind the Scenes'),
 (766, 'SAVANNAH TOWN', 'A Awe-Inspiring Tale of a Astronaut And a Database Administrator who must Chase a Secret Agent in The Gulf of Mexico', 2006, 1, NULL, 5, '0.99', 84, '25.99', 'PG-13', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (767, 'SCALAWAG DUCK', 'A Fateful Reflection of a Car And a Teacher who must Confront a Waitress in A Monastery', 2006, 1, NULL, 6, '4.99', 183, '13.99', 'NC-17', 'Commentaries,Behind the Scenes'),
-(768, 'SCARFACE BANG', 'A Emotional Yarn of a Teacher And a Girl who must Find a Teacher in A Baloon Factory', 2006, 1, NULL, 3, '4.99', 102, '11.99', 'PG-13', 'Commentaries,Deleted Scenes'),
+(768, 'SCARFACE BANG', 'A Emotional Yarn of a Teacher And a Girl who must Find a Teacher in A Baloon Factory', 2020, 1, NULL, 3, '4.99', 102, '11.99', 'PG-13', 'Commentaries,Deleted Scenes'),
 (769, 'SCHOOL JACKET', 'A Intrepid Yarn of a Monkey And a Boy who must Fight a Composer in A Manhattan Penthouse', 2006, 1, NULL, 5, '4.99', 151, '21.99', 'PG-13', 'Trailers'),
 (770, 'SCISSORHANDS SLUMS', 'A Awe-Inspiring Drama of a Girl And a Technical Writer who must Meet a Feminist in The Canadian Rockies', 2006, 1, NULL, 5, '2.99', 147, '13.99', 'G', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (771, 'SCORPION APOLLO', 'A Awe-Inspiring Documentary of a Technical Writer And a Husband who must Meet a Monkey in An Abandoned Fun House', 2006, 1, NULL, 3, '4.99', 137, '23.99', 'NC-17', 'Commentaries,Deleted Scenes'),
@@ -2483,8 +2486,8 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (783, 'SHANE DARKNESS', 'A Action-Packed Saga of a Moose And a Lumberjack who must Find a Woman in Berlin', 2006, 1, NULL, 5, '2.99', 93, '22.99', 'PG', 'Commentaries,Deleted Scenes'),
 (784, 'SHANGHAI TYCOON', 'A Fast-Paced Character Study of a Crocodile And a Lumberjack who must Build a Husband in An Abandoned Fun House', 2006, 1, NULL, 7, '2.99', 47, '20.99', 'PG', 'Commentaries,Deleted Scenes,Behind the Scenes'),
 (785, 'SHAWSHANK BUBBLE', 'A Lacklusture Story of a Moose And a Monkey who must Confront a Butler in An Abandoned Amusement Park', 2006, 1, NULL, 6, '4.99', 80, '20.99', 'PG', 'Commentaries,Deleted Scenes'),
-(786, 'SHEPHERD MIDSUMMER', 'A Thoughtful Drama of a Robot And a Womanizer who must Kill a Lumberjack in A Baloon', 2006, 1, NULL, 7, '0.99', 113, '14.99', 'R', 'Deleted Scenes'),
-(787, 'SHINING ROSES', 'A Awe-Inspiring Character Study of a Astronaut And a Forensic Psychologist who must Challenge a Madman in Ancient India', 2006, 1, NULL, 4, '0.99', 125, '12.99', 'G', 'Trailers,Commentaries,Deleted Scenes,Behind the Scenes'),
+(786, 'SHEPHERD MIDSUMMER', 'A Thoughtful Drama of a Robot And a Womanizer who must Kill a Lumberjack in A Baloon', 2006, 8, NULL, 7, '0.99', 113, '14.99', 'R', 'Deleted Scenes'),
+(787, 'SHINING ROSES', 'A Awe-Inspiring Character Study of a Astronaut And a Forensic Psychologist who must Challenge a Madman in Ancient India', 2006, 6, NULL, 4, '0.99', 125, '12.99', 'G', 'Trailers,Commentaries,Deleted Scenes,Behind the Scenes'),
 (788, 'SHIP WONDERLAND', 'A Thrilling Saga of a Monkey And a Frisbee who must Escape a Explorer in The Outback', 2006, 1, NULL, 5, '2.99', 104, '15.99', 'R', 'Commentaries'),
 (789, 'SHOCK CABIN', 'A Fateful Tale of a Mad Cow And a Crocodile who must Meet a Husband in New Orleans', 2006, 1, NULL, 7, '2.99', 79, '15.99', 'PG-13', 'Trailers,Commentaries,Behind the Scenes'),
 (790, 'SHOOTIST SUPERFLY', 'A Fast-Paced Story of a Crocodile And a A Shark who must Sink a Pioneer in Berlin', 2006, 1, NULL, 6, '0.99', 67, '22.99', 'PG-13', 'Trailers'),
@@ -2694,44 +2697,11 @@ INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language
 (994, 'WYOMING STORM', 'A Awe-Inspiring Panorama of a Robot And a Boat who must Overcome a Feminist in A U-Boat', 2006, 1, NULL, 6, '4.99', 100, '29.99', 'PG-13', 'Deleted Scenes'),
 (995, 'YENTL IDAHO', 'A Amazing Display of a Robot And a Astronaut who must Fight a Womanizer in Berlin', 2006, 1, NULL, 5, '4.99', 86, '11.99', 'R', 'Trailers,Commentaries,Deleted Scenes'),
 (996, 'YOUNG LANGUAGE', 'A Unbelieveable Yarn of a Boat And a Database Administrator who must Meet a Boy in The First Manned Space Station', 2006, 1, NULL, 6, '0.99', 183, '9.99', 'G', 'Trailers,Behind the Scenes'),
-(997, 'YOUTH KICK', 'A Touching Drama of a Teacher And a Cat who must Challenge a Technical Writer in A U-Boat', 2006, 1, NULL, 4, '0.99', 179, '14.99', 'NC-17', 'Trailers,Behind the Scenes');
+(997, 'Die hard', 'A Touching Drama of a Teacher And a Cat who must Challenge a Technical Writer in A U-Boat', 2006, 1, NULL, 4, '0.99', 179, '14.99', 'NC-17', 'Trailers,Behind the Scenes');
 INSERT INTO `film` (`film_id`, `title`, `description`, `release_year`, `language_id`, `original_language_id`, `rental_duration`, `rental_rate`, `length`, `replacement_cost`, `rating`, `special_features`) VALUES
 (998, 'ZHIVAGO CORE', 'A Fateful Yarn of a Composer And a Man who must Face a Boy in The Canadian Rockies', 2006, 1, NULL, 6, '0.99', 105, '10.99', 'NC-17', 'Deleted Scenes'),
 (999, 'ZOOLANDER FICTION', 'A Fateful Reflection of a Waitress And a Boat who must Discover a Sumo Wrestler in Ancient China', 2006, 1, NULL, 5, '2.99', 101, '28.99', 'R', 'Trailers,Deleted Scenes'),
-(1000, 'ZORRO ARK', 'A Intrepid Panorama of a Mad Scientist And a Boy who must Redeem a Boy in A Monastery', 2006, 1, NULL, 3, '4.99', 50, '18.99', 'NC-17', 'Trailers,Commentaries,Behind the Scenes');
-
---
--- Triggers `film`
---
-DROP TRIGGER IF EXISTS `del_film`;
-DELIMITER $$
-CREATE TRIGGER `del_film` AFTER DELETE ON `film` FOR EACH ROW BEGIN
-    DELETE FROM film_text WHERE film_id = old.film_id;
-  END
-$$
-DELIMITER ;
-DROP TRIGGER IF EXISTS `ins_film`;
-DELIMITER $$
-CREATE TRIGGER `ins_film` AFTER INSERT ON `film` FOR EACH ROW BEGIN
-    INSERT INTO film_text (film_id, title, description)
-        VALUES (new.film_id, new.title, new.description);
-  END
-$$
-DELIMITER ;
-DROP TRIGGER IF EXISTS `upd_film`;
-DELIMITER $$
-CREATE TRIGGER `upd_film` AFTER UPDATE ON `film` FOR EACH ROW BEGIN
-    IF (old.title != new.title) OR (old.description != new.description) OR (old.film_id != new.film_id)
-    THEN
-        UPDATE film_text
-            SET title=new.title,
-                description=new.description,
-                film_id=new.film_id
-        WHERE film_id=old.film_id;
-    END IF;
-  END
-$$
-DELIMITER ;
+(1000, 'ZORRO ARK', 'A Intrepid Panorama of a Mad Scientist And a Boy who must Redeem a Boy in A Monastery', 2010, 1, NULL, 3, '4.99', 50, '18.99', 'NC-17', 'Trailers,Commentaries,Behind the Scenes');
 
 -- --------------------------------------------------------
 
@@ -9250,7 +9220,7 @@ CREATE TABLE IF NOT EXISTS `language` (
   `name` char(20) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`language_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `language`
@@ -9262,7 +9232,9 @@ INSERT INTO `language` (`language_id`, `name`) VALUES
 (3, 'Japanese'),
 (4, 'Mandarin'),
 (5, 'French'),
-(6, 'German');
+(6, 'German'),
+(7, 'Spanish'),
+(8, 'Chinese');
 
 --
 -- Constraints for dumped tables
