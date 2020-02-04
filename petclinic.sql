@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Feb 03, 2020 at 03:47 PM
+-- Generation Time: Feb 04, 2020 at 05:34 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -18,6 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+DROP DATABASE IF EXISTS `petclinic`;
+CREATE DATABASE `petclinic`;
 --
 -- Database: `petclinic`
 --
@@ -38,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `owners` (
   `telephone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `last_name` (`last_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `owners`
@@ -64,7 +66,11 @@ INSERT INTO `owners` (`id`, `first_name`, `last_name`, `address`, `city`, `telep
 (17, 'Sam', 'Black', '1450 Oak Blvd.', 'Monona', '6085555387'),
 (18, 'Maria', 'Alexeeva', '345 Maple St.', 'Madison', '6085557683'),
 (19, 'Ronald', 'Schroeder', '2749 Blackhawk Trail', 'Madison', '6085559435'),
-(110, 'Carlos', 'Albanaros', '2335 Independence La.', 'Waunakee', '6085555487');
+(110, 'Carlos', 'Albanaros', '2335 Independence La.', 'Waunakee', '6085555487'),
+(111, 'Alex', 'Miles', '', 'Waunakee', '6085555489'),
+(112, 'James', 'McMillan', '2335 Independence La.', '', '6085554487'),
+(113, 'Sam', 'Albanaros', '2335 Independence La.', 'Waunakee', ''),
+(114, 'Ivan', 'Ivanov', '123 W. Liberty St.', 'St Leon', '6025551023');
 
 -- --------------------------------------------------------
 
@@ -83,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `pets` (
   KEY `name` (`name`),
   KEY `owner_id` (`owner_id`),
   KEY `type_id` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `pets`
@@ -96,7 +102,7 @@ INSERT INTO `pets` (`id`, `name`, `birth_date`, `type_id`, `owner_id`) VALUES
 (4, 'Jewel', '2000-03-07', 2, 3),
 (5, 'Iggy', '2000-11-30', 3, 4),
 (6, 'George', '2000-01-20', 4, 5),
-(7, 'Samantha', '1995-09-04', 1, 6),
+(7, 'Samantha', '1995-09-05', 1, 6),
 (8, 'Max', '1995-09-04', 1, 6),
 (9, 'Lucky', '1999-08-06', 5, 7),
 (10, 'Mulligan', '1997-02-24', 2, 8),
@@ -109,10 +115,12 @@ INSERT INTO `pets` (`id`, `name`, `birth_date`, `type_id`, `owner_id`) VALUES
 (17, 'Samantha', '2015-09-04', 11, 16),
 (18, 'Max', '2016-09-04', 11, 16),
 (19, 'Lucky', '2019-08-06', 15, 17),
-(110, 'Mulligan', '0000-00-00', 12, 18),
+(110, 'Mulligan', NULL, 12, 18),
 (111, 'Freddy', '2020-03-09', 15, 19),
 (112, 'Lucky', '2020-06-24', 12, 110),
-(113, 'Sly', '2012-06-08', 11, 110);
+(113, 'Sly', '2012-06-08', 11, 110),
+(114, 'Mikki', '2020-03-03', 1, 5),
+(115, 'Mia', '2019-06-24', 11, 2);
 
 -- --------------------------------------------------------
 
@@ -188,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `vets` (
   `license_expiration_date` date NOT NULL DEFAULT '2020-12-12',
   PRIMARY KEY (`id`),
   KEY `last_name` (`last_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `vets`
@@ -201,12 +209,13 @@ INSERT INTO `vets` (`id`, `first_name`, `last_name`, `middle_name`, `birth_day`,
 (4, 'Rafael', 'Ortega', 'Alexandrovich', '1990-01-01', '2020-12-12'),
 (5, 'Henry', 'Stevens', 'Petrovich', '1988-01-01', '2020-12-12'),
 (6, 'Sharon', 'Jenkins', 'Semenovich', '1991-01-01', '2020-12-12'),
-(11, 'Amy', 'Carter', 'D', '1988-01-01', '2020-12-12'),
+(11, 'Amy', 'Carter', 'D', '2001-01-01', '2020-12-12'),
 (12, 'Helen', 'Cross', 'P', '1988-01-01', '2020-12-12'),
 (13, 'Amalia', 'Douglas', 'S', '1988-01-01', '2020-12-12'),
 (14, 'Rafael', 'Cortess', 'Danilovich', '1988-01-01', '2020-12-12'),
 (15, 'John', 'Stevens', 'Evgenievich', '1988-01-01', '2020-12-12'),
-(16, 'Sharon', 'Peterson', 'Maratovich', '1988-01-01', '2020-05-05');
+(16, 'Sharon', 'Peterson', 'Maratovich', '1988-01-01', '2020-05-05'),
+(17, 'John', 'Smith', 'S', '1989-02-02', '2021-12-12');
 
 -- --------------------------------------------------------
 
@@ -254,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `visits` (
   PRIMARY KEY (`id`),
   KEY `pet_id` (`pet_id`),
   KEY `vet_id_index` (`vet_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `visits`
@@ -268,7 +277,11 @@ INSERT INTO `visits` (`id`, `pet_id`, `vet_id`, `visit_date`, `description`) VAL
 (11, 17, 4, '2020-03-04', 'rabies shot'),
 (12, 18, 5, '2019-03-04', 'rabies shot'),
 (13, 18, 6, '2020-06-04', 'neutered'),
-(14, 17, 2, '2020-09-04', 'spayed');
+(14, 17, 2, '2020-09-04', 'spayed'),
+(15, 114, 4, '2020-02-02', 'smth went wrong'),
+(16, 114, 6, '2020-02-03', 'smth went too wrong'),
+(17, 114, 6, '2019-04-04', 'smth went too wrong'),
+(18, 4, 5, '2019-05-01', 'smth went too wrong');
 
 --
 -- Constraints for dumped tables
