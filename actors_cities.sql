@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Feb 03, 2020 at 03:49 PM
+-- Generation Time: Feb 04, 2020 at 06:40 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -18,6 +18,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+DROP DATABASE IF EXISTS actors_cities;
+CREATE DATABASE actors_cities;
+USE actors_cities;
 --
 -- Database: `actors_cities`
 --
@@ -33,14 +36,32 @@ CREATE TABLE IF NOT EXISTS `actor` (
   `actor_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
-  `surname` varchar(124) NOT NULL,
-  `bithday` date NOT NULL,
-  `birthplace` int(11) NOT NULL,
+  `middle_name` varchar(124) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `bithday` date DEFAULT NULL,
+  `birthplace` int(11) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`actor_id`),
   KEY `idx_actor_last_name` (`last_name`),
   KEY `bp_index` (`birthplace`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `actor`
+--
+
+INSERT INTO `actor` (`actor_id`, `first_name`, `last_name`, `middle_name`, `bithday`, `birthplace`) VALUES
+(2, 'Mary', 'Smith', 'S', '2000-01-01', 65),
+(3, 'James', 'Samuel', 'a', '2000-01-01', 2209),
+(4, 'Mihael', 'Smith', '', '2000-01-01', 65),
+(5, 'Sam', 'Smith', '', NULL, 65),
+(12, 'Amy', 'Stevenson', 'A', '1987-01-01', NULL),
+(13, 'John', 'Stevenson', 'A', '1987-01-02', NULL),
+(14, 'Amily', 'Smith', 'Petrovich', '2000-01-01', 65),
+(15, 'Harry', 'Mc Donald', 'A', '1960-01-02', NULL),
+(16, 'Mary', 'Carry', 'S', '2010-01-01', 65),
+(17, 'James', 'Samuel', 'a', '2000-03-03', 1464),
+(18, 'Mini', 'Cooper', 'S', '2000-01-01', 654),
+(19, 'Natalia', 'Parfenova', 'S', '1995-01-01', 3580);
 
 -- --------------------------------------------------------
 
@@ -55,7 +76,17 @@ CREATE TABLE IF NOT EXISTS `aeroport` (
   `city_id` int(11) NOT NULL,
   PRIMARY KEY (`aero_id`),
   KEY `acity_index` (`city_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `aeroport`
+--
+
+INSERT INTO `aeroport` (`aero_id`, `aero_name`, `city_id`) VALUES
+(1, 'Pulkovo', 3860),
+(2, 'Domodedovo', 3580),
+(3, 'Izhevsk aero', 4080),
+(4, 'Sheremetievo', 3580);
 
 -- --------------------------------------------------------
 
@@ -72,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `Info` json DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `cc_index` (`CountryCode`)
-) ENGINE=InnoDB AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4081 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `city`
@@ -4162,7 +4193,8 @@ INSERT INTO `city` (`ID`, `Name`, `CountryCode`, `District`, `Info`) VALUES
 (4076, 'Hebron', 'PSE', 'Hebron', '{\"Population\": 119401}'),
 (4077, 'Jabaliya', 'PSE', 'North Gaza', '{\"Population\": 113901}'),
 (4078, 'Nablus', 'PSE', 'Nablus', '{\"Population\": 100231}'),
-(4079, 'Rafah', 'PSE', 'Rafah', '{\"Population\": 92020}');
+(4079, 'Rafah', 'PSE', 'Rafah', '{\"Population\": 92020}'),
+(4080, 'Izhevsk', 'RUS', 'UR', '{\"Population\": 178000}');
 
 -- --------------------------------------------------------
 
